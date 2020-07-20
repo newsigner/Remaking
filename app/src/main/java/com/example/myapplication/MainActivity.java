@@ -26,7 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    YouTubePlayerFragment youTube;
+    ViewPager pager;
     RecyclerView list;
     String key = "35392ba4b1a9bcacbcea93803f31d8c0";
     String baseUrl = "http://www.kobis.or.kr";
@@ -39,18 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         list = findViewById(R.id.list);
-        youTube = (YouTubePlayerFragment) getFragmentManager().findFragmentById(R.id.youtube);
-        youTube.initialize("start", new YouTubePlayer.OnInitializedListener() {
-            @Override
-            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-                youTubePlayer.loadVideo("q5G0wQxLSSo");
-            }
 
-            @Override
-            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-
-            }
-        });
 
         String day = Day();
         RetrofitMaking(day);
@@ -74,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<Map<String, Object>> call, Response<Map<String, Object>> response) {
                 Map<String, Object> boxOfficeResult = (Map<String, Object>) response.body().get("boxOfficeResult");
                 ArrayList<Map<String, Object>> jsonList = (ArrayList) boxOfficeResult.get("dailyBoxOfficeList");
-                adapter = new BoxAdapter(MainActivity.this, jsonList, youTube);
+                adapter = new BoxAdapter(MainActivity.this, jsonList);
             }
 
             @Override
