@@ -122,6 +122,7 @@ public class BoxAdapter extends RecyclerView.Adapter<BoxAdapter.BoxVH> {
                 ArrayList<Map<String, Object>> items = (ArrayList) response.body().get("items");
                 Map<String, Object> id = (Map<String, Object>) items.get(0).get("id");
                 Toast.makeText(context, id.get("videoId").toString(), Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
