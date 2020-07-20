@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.View;
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<Map<String, Object>> call, Response<Map<String, Object>> response) {
                 Map<String, Object> boxOfficeResult = (Map<String, Object>) response.body().get("boxOfficeResult");
                 ArrayList<Map<String, Object>> jsonList = (ArrayList) boxOfficeResult.get("dailyBoxOfficeList");
-                adapter = new BoxAdapter(MainActivity.this, jsonList);
+                adapter = new BoxAdapter(MainActivity.this, jsonList, youTube);
             }
 
             @Override

@@ -28,10 +28,12 @@ public class BoxAdapter extends RecyclerView.Adapter<BoxAdapter.BoxVH> {
 
     private ArrayList<Map<String, Object>> items = new ArrayList<Map<String, Object>>();
     Context context;
+    YouTubePlayerFragment youTube;
 
-    public BoxAdapter(Context context, ArrayList<Map<String, Object>> items) {
+    public BoxAdapter(Context context, ArrayList<Map<String, Object>> items, YouTubePlayerFragment youTube) {
         this.context = context;
         this.items = items;
+        this.youTube = youTube;
     }
 
     @NonNull
@@ -66,7 +68,7 @@ public class BoxAdapter extends RecyclerView.Adapter<BoxAdapter.BoxVH> {
                 @Override
                 public void onClick(View view) {
                     Map<String, Object> item = items.get(getLayoutPosition());
-                    String s = setYouTube(item);
+                    setYouTube(item);
                 }
             });
         }
@@ -102,13 +104,12 @@ public class BoxAdapter extends RecyclerView.Adapter<BoxAdapter.BoxVH> {
         }
     }
 
-    public String setYouTube(Map<String, Object> item) {
+    public void setYouTube(Map<String, Object> item) {
         String key = "AIzaSyCPapv9Ng5jyW-QulsNqlebY-3CO7sNAyU";
         String part = "id";
         String query = item.get("movieNm").toString()+"trailer";
         int max = 1;
         String type = "video";
-        final String[] videoId = new String[1];
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://www.googleapis.com")
@@ -120,7 +121,7 @@ public class BoxAdapter extends RecyclerView.Adapter<BoxAdapter.BoxVH> {
             public void onResponse(Call<Map<String, Object>> call, Response<Map<String, Object>> response) {
                 ArrayList<Map<String, Object>> items = (ArrayList) response.body().get("items");
                 Map<String, Object> id = (Map<String, Object>) items.get(0).get("id");
-                videoId[0] = id.get("videoId").toString();
+                Toast.makeText(context, id.get("videoId").toString(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -129,7 +130,5 @@ public class BoxAdapter extends RecyclerView.Adapter<BoxAdapter.BoxVH> {
 
             }
         });
-        String video = videoId.toString();
-        return video;
     }
 }
