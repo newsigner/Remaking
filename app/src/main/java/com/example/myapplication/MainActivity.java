@@ -1,10 +1,15 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerFragment;
 
 import java.text.SimpleDateFormat;
@@ -33,11 +38,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         list = findViewById(R.id.list);
-        youTube = (YouTubePlayerFragment) getFragmentManager().findFragmentById(R.id.youTube);
+        youTube = (YouTubePlayerFragment) getFragmentManager().findFragmentById(R.id.youtube);
+        youTube.initialize("start", new YouTubePlayer.OnInitializedListener() {
+            @Override
+            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+                youTubePlayer.loadVideo("q5G0wQxLSSo");
+            }
+
+            @Override
+            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+
+            }
+        });
 
         String day = Day();
         RetrofitMaking(day);
-        list.setAdapter(adapter);
     }
 
     private String Day() {
@@ -58,13 +73,17 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<Map<String, Object>> call, Response<Map<String, Object>> response) {
                 Map<String, Object> boxOfficeResult = (Map<String, Object>) response.body().get("boxOfficeResult");
                 ArrayList<Map<String, Object>> jsonList = (ArrayList) boxOfficeResult.get("dailyBoxOfficeList");
-                adapter = new BoxAdapter(jsonList);
+                adapter = new BoxAdapter(MainActivity.this, jsonList);
             }
 
             @Override
             public void onFailure(Call<Map<String, Object>> call, Throwable t) {
-
+                Toast.makeText(MainActivity.this, "X", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void click(View view) {
+        list.setAdapter(adapter);
     }
 }

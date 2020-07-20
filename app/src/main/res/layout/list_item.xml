@@ -8,19 +8,23 @@
     app:contentPadding="4dp"
     android:layout_margin="8dp">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ticket"
+        android:tint="#11000000"
+        android:scaleType="center"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:id="@+id/rank"
-            android:text="2"
-            android:textSize="24sp"
-            android:background="@color/colorAccent"
+            android:src="@drawable/one"
             android:gravity="center"
-            android:textColor="#FFFFFF"
             android:layout_centerVertical="true"
             android:layout_marginHorizontal="8dp"/>
 
@@ -30,6 +34,8 @@
             android:id="@+id/movieNm"
             android:text="movie title"
             android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/rank"/>
 
@@ -40,8 +46,16 @@
             android:text="10"
             android:textSize="14sp"
             android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
+            android:layout_toLeftOf="@+id/audiImg"
             android:layout_marginHorizontal="8dp"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/equals"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:id="@+id/audiImg"/>
 
     </RelativeLayout>
 

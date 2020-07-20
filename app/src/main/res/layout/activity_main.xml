@@ -5,27 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/backgraund">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary">
-        <TextView
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/titlebg">
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Title Image"
-            android:textSize="40sp"
-            android:layout_gravity="center"
-            android:textColor="@color/colorAccent"/>
+            android:src="@drawable/title"
+            android:layout_gravity="center"/>
     </androidx.appcompat.widget.Toolbar>
 
     <fragment
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/youTube"
+        android:id="@+id/youtube"
         android:layout_margin="8dp"
-        android:name="com.google.android.youtube.player.YouTubePlayerFragment"/>
+        android:name="com.google.android.youtube.player.YouTubePlayerFragment" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="영화 목록 보기"
+        android:onClick="click"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
