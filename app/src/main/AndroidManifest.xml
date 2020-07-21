@@ -12,14 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.erwkss.com.erpackto.mvch.LauncherActivity">
+        <activity android:name="com.erwkss.mvch.LauncherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.erwkss.com.erpackto.mvch.MainActivity"></activity>
+        <activity android:name="com.erwkss.mvch.MainActivity"></activity>
     </application>
 
 </manifest>
