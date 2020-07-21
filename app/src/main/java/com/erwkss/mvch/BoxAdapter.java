@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.erwkss.mvch;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,9 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
-import com.google.android.youtube.player.YouTubePlayerFragment;
 
 import java.util.ArrayList;
 import java.util.Map;
