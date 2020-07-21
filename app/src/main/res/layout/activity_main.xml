@@ -19,11 +19,13 @@
             android:layout_gravity="center"/>
     </androidx.appcompat.widget.Toolbar>
 
-    <androidx.viewpager.widget.ViewPager
+    <fragment
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:id="@+id/pager"/>
+        android:name="com.google.android.youtube.player.YouTubePlayerFragment"
+        android:id="@+id/youTube"/>
+
 
     <Button
         android:layout_width="match_parent"
