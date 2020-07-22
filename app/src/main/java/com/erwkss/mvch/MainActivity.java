@@ -3,8 +3,10 @@ package com.erwkss.mvch;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView.Adapter adapter;
     Retrofit retrofit;
     YouTubePlayer player;
+    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         list = findViewById(R.id.list);
+        btn = findViewById(R.id.btnPage);
         youTube = (YouTubePlayerFragment) getFragmentManager().findFragmentById(R.id.youTube);
         youTube.initialize("start", new YouTubePlayer.OnInitializedListener() {
             @Override
@@ -85,6 +89,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void click(View view) {
+
         list.setAdapter(adapter);
+        btn.setVisibility(View.VISIBLE);
+
+    }
+
+    public void pageRun(View view) {
     }
 }

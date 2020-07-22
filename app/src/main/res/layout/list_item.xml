@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="60dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp"
-    android:layout_margin="8dp">
+    android:layout_marginVertical="3dp">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/ticket"
+        android:src="@drawable/ticket2"
         android:tint="#11000000"
         android:scaleType="center"/>
 
@@ -34,7 +34,8 @@
             android:text="movie title"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="#333333"
+            android:textColor="#ffffff"
+            android:background="#88000000"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/rank"/>
 
