@@ -10,7 +10,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/ticket2"
+        android:src="@drawable/ticket"
         android:tint="#11000000"
         android:scaleType="center"/>
 
